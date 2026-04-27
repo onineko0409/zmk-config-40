@@ -1,0 +1,6 @@
+if SHIELD_JENNY40_MOD
+
+config ZMK_KEYBOARD_NAME
+    default "Jenny40 Mod"
+
+endif # SHIELD_JENNY40_MOD
