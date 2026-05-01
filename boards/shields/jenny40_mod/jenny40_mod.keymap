@@ -7,10 +7,26 @@
 
         default_layer {
             bindings = <
-                &kp ESC    &kp Q     &kp W     &kp E      &kp R      &kp T      &kp Y     &kp U     &kp I      &kp O      &kp P
-                &kp TAB    &kp A     &kp S     &kp D      &kp F      &kp G      &kp H     &kp J     &kp K      &kp L      &kp ENTER
-                &kp LSHFT  &kp Z     &kp X     &kp C      &kp V      &kp B      &kp N     &kp M     &kp LGUI   &kp UP     &kp BSPC
-                &kp LCTRL  &kp LGUI  &kp LALT  &kp SPACE  &kp SPACE  &kp SPACE  &kp LEFT  &kp DOWN  &kp RIGHT  &none      &none
+                /* ROW1: red */
+                &kp LCTRL  &kp LGUI  &kp LALT  &none      &kp SPACE  &kp SPACE  &none      &kp LEFT  &kp DOWN  &kp RIGHT  &kp BSPC
+
+                /* ROW2: blue */
+                &kp LSHFT  &kp Z     &kp X     &kp C      &kp V      &kp B      &kp N      &kp M     &kp LGUI  &kp UP    &mo 1
+
+                /* ROW3: yellow */
+                &kp TAB    &kp A     &kp S     &kp D      &kp F      &kp G      &kp H      &kp J     &kp K     &kp L     &kp ENTER
+
+                /* ROW4: green */
+                &kp ESC    &kp Q     &kp W     &kp E      &kp R      &kp T      &kp Y      &kp U     &kp I     &kp O     &kp P
+            >;
+        };
+
+        fn_layer {
+            bindings = <
+                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &trans    &trans    &trans    &trans
+                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &trans    &trans    &trans    &trans
+                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &trans    &trans    &trans    &trans
+                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &trans    &trans    &trans    &trans
             >;
         };
     };
