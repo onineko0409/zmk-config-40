@@ -68,3 +68,89 @@
         >;
     };
 };
+
+/* ===== TrackPoint PS/2 test config =====
+ * Wiring:
+ * TrackPoint SCK / CLOCK -> D19
+ * TrackPoint SDA / DATA  -> D20
+ *
+ * RST is NOT connected to MCU.
+ * RST is pulled up to VCC through 100k on your small board,
+ * matching the rflog-style reset circuit.
+ */
+
+#include <dt-bindings/pinctrl/nrf-pinctrl.h>
+
+#define MOUSE_PS2_DRIVER_UART
+
+/* SCL = CLOCK = your SCK line */
+#define MOUSE_PS2_PIN_SCL_PRO_MICRO <&pro_micro 19 GPIO_ACTIVE_HIGH>
+
+/* SDA = DATA line */
+#define MOUSE_PS2_PIN_SDA_PRO_MICRO <&pro_micro 20 GPIO_ACTIVE_HIGH>
+
+/* D20 = P0.29 on common Pro Micro nRF52840 / nice!nano-style pinout */
+#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 29)>
+
+/* Default recommended baud for many TrackPoints */
+#define MOUSE_PS2_UART_BAUD_RATE <14400>
+
+/* Unexposed UART pins used internally by the driver on nice!nano */
+#define MOUSE_PS2_PIN_UNEXPOSED_TX <NRF_PSEL(UART_TX, 0, 27)>
+#define MOUSE_PS2_PIN_UNEXPOSED_RX <NRF_PSEL(UART_RX, 0, 28)>
+
+#define MOUSE_PS2_DT_PRESENT
+
+&pinctrl {
+    uart0_ps2_default: uart0_ps2_default {
+        group1 {
+            psels = MOUSE_PS2_PIN_UNEXPOSED_TX,
+                    MOUSE_PS2_PIN_SDA_PINCTRL;
+        };
+    };
+
+    uart0_ps2_sleep: uart0_ps2_sleep {
+        group1 {
+            psels = MOUSE_PS2_PIN_UNEXPOSED_TX,
+                    MOUSE_PS2_PIN_SDA_PINCTRL;
+            low-power-enable;
+        };
+    };
+
+    uart0_ps2_off: uart0_ps2_off {
+        group1 {
+            psels = MOUSE_PS2_PIN_UNEXPOSED_TX,
+                    MOUSE_PS2_PIN_UNEXPOSED_RX;
+        };
+    };
+};
+
+&uart0 {
+    status = "disabled";
+    compatible = "nordic,nrf-uarte";
+    current-speed = MOUSE_PS2_UART_BAUD_RATE;
+    pinctrl-0 = <&uart0_ps2_default>;
+    pinctrl-1 = <&uart0_ps2_off>;
+    pinctrl-names = "default", "sleep";
+
+    uart_ps2: uart_ps2 {
+        status = "okay";
+        compatible = "uart-ps2";
+        scl-gpios = MOUSE_PS2_PIN_SCL_PRO_MICRO;
+        sda-gpios = MOUSE_PS2_PIN_SDA_PRO_MICRO;
+    };
+};
+
+/ {
+    mouse_ps2: mouse_ps2 {
+        status = "okay";
+        compatible = "zmk,input-mouse-ps2";
+        ps2-device = <&uart_ps2>;
+    };
+
+    mouse_ps2_input_listener: mouse_ps2_input_listener {
+        compatible = "zmk,input-listener-ps2";
+        status = "okay";
+        device = <&mouse_ps2>;
+    };
+};
