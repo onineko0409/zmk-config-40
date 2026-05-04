@@ -126,7 +126,7 @@
 };
 
 &uart0 {
-    status = "disabled";
+    status = "okay";
     compatible = "nordic,nrf-uarte";
     current-speed = MOUSE_PS2_UART_BAUD_RATE;
     pinctrl-0 = <&uart0_ps2_default>;
