@@ -149,6 +149,11 @@
 
         /* Invert TrackPoint vertical movement */
         tp-y-invert;
+
+        /* TrackPoint speed tuning */
+        sampling-rate = <200>;
+        tp-sensitivity = <180>;
+        tp-val6-upper-speed = <110>;
     };
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
