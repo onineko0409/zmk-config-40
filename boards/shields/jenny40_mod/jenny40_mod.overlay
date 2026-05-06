@@ -1,7 +1,5 @@
 // Jenny40 Mod - full 4x11 matrix
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
 
 / {
     chosen {
@@ -155,6 +153,5 @@
         status = "okay";
         device = <&mouse_ps2>;
 
-        input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
     };
 };
