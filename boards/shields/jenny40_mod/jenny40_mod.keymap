@@ -1,5 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 / {
     keymap {
@@ -8,26 +10,49 @@
         default_layer {
             bindings = <
                 /* ROW1: red */
-                &kp LCTRL  &kp LGUI  &kp LALT  &none      &kp SPACE  &kp SPACE  &none      &kp DOWN  &kp RIGHT  &kp LEFT  &kp BSPC
+                &kp LCTRL &kp LGUI &kp LALT &none &kp SPACE &kp SPACE &none &kp DOWN &kp RIGHT &kp LEFT &kp BSPC
 
                 /* ROW2: blue */
-                &kp LSHFT  &kp Z     &kp X     &kp C      &kp V      &kp B      &kp N     &mo 1     &kp UP  &kp M    &mo 1
+                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp N &mo 1 &kp UP &kp M &mo 1
 
                 /* ROW3: yellow */
-                &kp TAB    &kp A     &kp S     &kp D      &kp F      &kp G      &kp H      &kp K     &kp L     &kp J     &kp ENTER
+                &kp TAB &kp A &kp S &kp D &kp F &kp G &kp H &kp K &kp L &kp J &kp ENTER
 
                 /* ROW4: green */
-                &kp ESC    &kp Q     &kp W     &kp E      &kp R      &kp T      &kp Y      &kp I     &kp O     &kp U     &kp P
+                &kp ESC &kp Q &kp W &kp E &kp R &kp T &kp Y &kp I &kp O &kp U &kp P
             >;
         };
 
         fn_layer {
             bindings = <
-                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &trans    &trans    &trans    &trans
-                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &kp QUESTION    &trans    &trans    &trans
-                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &trans    &trans    &trans    &trans
-                &trans     &trans    &trans    &trans     &trans     &trans     &trans     &trans    &trans    &trans    &trans
+                /* ROW1: red */
+                &trans &trans &trans &trans &mkp LCLK &mkp RCLK &trans &trans &trans &trans &trans
+
+                /* ROW2: blue */
+                &trans &trans &trans &trans &mkp MCLK &trans &trans &kp QUESTION &trans &trans &trans
+
+                /* ROW3: yellow */
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+
+                /* ROW4: green */
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
             >;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        bootloader_combo {
+            timeout-ms = <80>;
+            key-positions = <33 43>;
+            bindings = <&bootloader>;
+        };
+
+        ext_power_on_combo {
+            timeout-ms = <80>;
+            key-positions = <33 34>;
+            bindings = <&ext_power EP_ON>;
         };
     };
 };
