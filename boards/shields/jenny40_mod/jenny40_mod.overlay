@@ -158,5 +158,8 @@
         status = "okay";
         device = <&mouse_ps2>;
 
+        /* Invert TrackPoint vertical movement */
+        tp-y-invert;
+
     };
 };
