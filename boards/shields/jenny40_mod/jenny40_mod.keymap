@@ -28,16 +28,16 @@
         fn_layer {
             bindings = <
                 /* ROW1: red */
-                &trans        &trans        &trans        &trans        &mkp LCLK     &mkp RCLK     &out OUT_USB  &out OUT_BLE  &bt BT_NXT   &bt BT_PRV   &trans
+                &trans        &trans        &trans        &trans        &mkp LCLK     &mkp RCLK     &out OUT_USB  &out OUT_BLE  &bt BT_NXT   &bt BT_PRV   &kp PLUS
 
                 /* ROW2: blue */
-                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &bt BT_SEL 3  &kp QUESTION  &trans       &bt BT_SEL 4 &trans
+                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &kp COMMA     &kp QUESTION  &trans       &kp DOT      &trans
 
                 /* ROW3: yellow */
-                &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &trans       &trans
+                &trans        &trans        &trans        &trans        &trans        &kp LBKT      &kp RBKT      &kp SQT       &kp BSLH      &kp SEMI     &trans
 
                 /* ROW4: green */
-                &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &trans       &trans
+                &trans        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp N6        &kp N7        &kp N8        &kp N9       &kp N0
             >;
         };
     };
@@ -55,6 +55,124 @@
             timeout-ms = <80>;
             key-positions = <33 34>;
             bindings = <&ext_power EP_ON>;
+        };
+
+        /* Shift + QWERTYUIOP = !@#$%^&*() */
+        shift_q_excl {
+            timeout-ms = <80>;
+            key-positions = <11 34>;
+            bindings = <&kp EXCL>;
+        };
+
+        shift_w_at {
+            timeout-ms = <80>;
+            key-positions = <11 35>;
+            bindings = <&kp AT>;
+        };
+
+        shift_e_hash {
+            timeout-ms = <80>;
+            key-positions = <11 36>;
+            bindings = <&kp HASH>;
+        };
+
+        shift_r_dollar {
+            timeout-ms = <80>;
+            key-positions = <11 37>;
+            bindings = <&kp DLLR>;
+        };
+
+        shift_t_percent {
+            timeout-ms = <80>;
+            key-positions = <11 38>;
+            bindings = <&kp PRCNT>;
+        };
+
+        shift_y_caret {
+            timeout-ms = <80>;
+            key-positions = <11 39>;
+            bindings = <&kp CARET>;
+        };
+
+        shift_i_ampersand {
+            timeout-ms = <80>;
+            key-positions = <11 40>;
+            bindings = <&kp AMPS>;
+        };
+
+        shift_o_asterisk {
+            timeout-ms = <80>;
+            key-positions = <11 41>;
+            bindings = <&kp STAR>;
+        };
+
+        shift_u_lparen {
+            timeout-ms = <80>;
+            key-positions = <11 42>;
+            bindings = <&kp LPAR>;
+        };
+
+        shift_p_rparen {
+            timeout-ms = <80>;
+            key-positions = <11 43>;
+            bindings = <&kp RPAR>;
+        };
+
+        /* Shift + Backspace = = */
+        shift_backspace_equal {
+            timeout-ms = <80>;
+            key-positions = <11 10>;
+            bindings = <&kp EQUAL>;
+        };
+
+        /* Shift + G H J K L = { } : " | */
+        shift_g_lbrace {
+            timeout-ms = <80>;
+            key-positions = <11 27>;
+            bindings = <&kp LBRC>;
+        };
+
+        shift_h_rbrace {
+            timeout-ms = <80>;
+            key-positions = <11 28>;
+            bindings = <&kp RBRC>;
+        };
+
+        shift_j_colon {
+            timeout-ms = <80>;
+            key-positions = <11 31>;
+            bindings = <&kp COLON>;
+        };
+
+        shift_k_dquote {
+            timeout-ms = <80>;
+            key-positions = <11 29>;
+            bindings = <&kp DQT>;
+        };
+
+        shift_l_pipe {
+            timeout-ms = <80>;
+            key-positions = <11 30>;
+            bindings = <&kp PIPE>;
+        };
+
+        /* Shift + N M right-side key = < > ? */
+        shift_n_lt {
+            timeout-ms = <80>;
+            key-positions = <11 17>;
+            bindings = <&kp LT>;
+        };
+
+        shift_m_gt {
+            timeout-ms = <80>;
+            key-positions = <11 20>;
+            bindings = <&kp GT>;
+        };
+
+        shift_right_question {
+            timeout-ms = <80>;
+            key-positions = <11 18>;
+            bindings = <&kp QUESTION>;
         };
     };
 };
