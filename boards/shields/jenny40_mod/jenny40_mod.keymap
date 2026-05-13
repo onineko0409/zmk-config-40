@@ -1,37 +1,173 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    behaviors {
+        q_excl: q_excl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp Q>, <&kp EXCL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        w_at: w_at {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&kp AT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        e_hash: e_hash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp E>, <&kp HASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        r_dollar: r_dollar {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp R>, <&kp DLLR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        t_percent: t_percent {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp T>, <&kp PRCNT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        y_caret: y_caret {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp Y>, <&kp CARET>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        u_ampersand: u_ampersand {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp U>, <&kp AMPS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        i_asterisk: i_asterisk {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp I>, <&kp STAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        o_lparen: o_lparen {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp O>, <&kp LPAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        p_rparen: p_rparen {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp RPAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bspc_equal: bspc_equal {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp EQUAL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        g_lbrace: g_lbrace {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp G>, <&kp LBRC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        h_rbrace: h_rbrace {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp RBRC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        j_colon: j_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        k_dquote: k_dquote {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp K>, <&kp DQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        l_pipe: l_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp L>, <&kp PIPE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        n_lt: n_lt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp N>, <&kp LT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        m_gt: m_gt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp M>, <&kp GT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_question: fn_question {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mo 1>, <&kp QUESTION>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
                 /* ROW1: red */
-                &kp LCTRL &kp LGUI &kp LALT &none &kp SPACE &kp SPACE &none &kp DOWN &kp RIGHT &kp LEFT &kp BSPC
+                &kp LCTRL &kp LGUI &kp LALT &none &kp SPACE &kp SPACE &none &kp DOWN &kp RIGHT &kp LEFT &bspc_equal
 
                 /* ROW2: blue */
-                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp N &mo 1 &kp UP &kp M &mo 1
+                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &n_lt &fn_question &kp UP &m_gt &mo 1
 
                 /* ROW3: yellow */
-                &kp TAB &kp A &kp S &kp D &kp F &kp G &kp H &kp K &kp L &kp J &kp ENTER
+                &kp TAB &kp A &kp S &kp D &kp F &g_lbrace &h_rbrace &k_dquote &l_pipe &j_colon &kp ENTER
 
                 /* ROW4: green */
-                &kp ESC &kp Q &kp W &kp E &kp R &kp T &kp Y &kp I &kp O &kp U &kp P
+                &kp ESC &q_excl &w_at &e_hash &r_dollar &t_percent &y_caret &i_asterisk &o_lparen &u_ampersand &p_rparen
             >;
         };
 
         fn_layer {
             bindings = <
                 /* ROW1: red */
-                &trans        &trans        &trans        &trans        &mkp LCLK     &mkp RCLK     &out OUT_USB  &out OUT_BLE  &bt BT_NXT   &bt BT_PRV   &kp PLUS
+                &trans        &trans        &trans        &trans        &mkp LCLK     &mkp RCLK     &out OUT_USB  &msc SCRL_DOWN &msc SCRL_RIGHT &msc SCRL_LEFT   &kp PLUS
 
                 /* ROW2: blue */
-                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &kp COMMA     &kp QUESTION  &trans       &kp DOT      &trans
+                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &kp COMMA     &kp QUESTION  &msc SCRL_UP       &kp DOT      &trans
 
                 /* ROW3: yellow */
                 &trans        &trans        &trans        &trans        &trans        &kp LBKT      &kp RBKT      &kp SQT       &kp BSLH      &kp SEMI     &trans
@@ -46,161 +182,15 @@
         compatible = "zmk,combos";
 
         bootloader_combo {
-            timeout-ms = <120>;
+            timeout-ms = <80>;
             key-positions = <33 43>;
             bindings = <&bootloader>;
         };
 
         ext_power_on_combo {
-            timeout-ms = <120>;
+            timeout-ms = <80>;
             key-positions = <33 34>;
             bindings = <&ext_power EP_ON>;
-        };
-
-        /* Shift + QWERTYUIOP = !@#$%^&*()
-         * Note: your row order is Q W E R T Y I O U P,
-         * so U/I/O are mapped by physical key expectation.
-         */
-        shift_q_excl {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 34>;
-            bindings = <&kp EXCL>;
-        };
-
-        shift_w_at {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 35>;
-            bindings = <&kp AT>;
-        };
-
-        shift_e_hash {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 36>;
-            bindings = <&kp HASH>;
-        };
-
-        shift_r_dollar {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 37>;
-            bindings = <&kp DLLR>;
-        };
-
-        shift_t_percent {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 38>;
-            bindings = <&kp PRCNT>;
-        };
-
-        shift_y_caret {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 39>;
-            bindings = <&kp CARET>;
-        };
-
-        /* physical U is position 42 */
-        shift_u_ampersand {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 42>;
-            bindings = <&kp AMPS>;
-        };
-
-        /* physical I is position 40 */
-        shift_i_asterisk {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 40>;
-            bindings = <&kp STAR>;
-        };
-
-        /* physical O is position 41 */
-        shift_o_lparen {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 41>;
-            bindings = <&kp LPAR>;
-        };
-
-        shift_p_rparen {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 43>;
-            bindings = <&kp RPAR>;
-        };
-
-        /* Shift + Backspace = = */
-        shift_backspace_equal {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 10>;
-            bindings = <&kp EQUAL>;
-        };
-
-        /* Shift + G H J K L = { } : " | */
-        shift_g_lbrace {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 27>;
-            bindings = <&kp LBRC>;
-        };
-
-        shift_h_rbrace {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 28>;
-            bindings = <&kp RBRC>;
-        };
-
-        /* J is position 31 in your current row order */
-        shift_j_colon {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 31>;
-            bindings = <&kp COLON>;
-        };
-
-        /* K is position 29 */
-        shift_k_dquote {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 29>;
-            bindings = <&kp DQT>;
-        };
-
-        /* L is position 30 */
-        shift_l_pipe {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 30>;
-            bindings = <&kp PIPE>;
-        };
-
-        /* Shift + N M position18 = < > ? */
-        shift_n_lt {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 17>;
-            bindings = <&kp LT>;
-        };
-
-        shift_m_gt {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 20>;
-            bindings = <&kp GT>;
-        };
-
-        shift_pos18_question {
-            timeout-ms = <200>;
-            slow-release;
-            key-positions = <11 18>;
-            bindings = <&kp QUESTION>;
         };
     };
 };
