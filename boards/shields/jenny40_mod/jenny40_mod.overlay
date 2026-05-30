@@ -164,16 +164,16 @@
     };
 };
 
-/* ===== SuperMini VCC polarity fix start =====
- * Override the existing nice_nano ext_power node.
- *
- * Board note:
+/* ===== SuperMini VCC auto power fix start =====
+ * Board behavior:
  *   P0.13 LOW  = VCC powered off
  *   P0.13 HIGH = VCC powered on
  *
- * Therefore EP_ON should drive P0.13 HIGH.
+ * Goal:
+ *   Awake      -> external power enabled -> P0.13 HIGH -> VCC 3.3V
+ *   Deep sleep -> external power disabled -> P0.13 LOW  -> VCC 0V
  */
-&ext_power {
+&{/ext-power} {
     control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
 };
-/* ===== SuperMini VCC polarity fix end ===== */
+/* ===== SuperMini VCC auto power fix end ===== */
