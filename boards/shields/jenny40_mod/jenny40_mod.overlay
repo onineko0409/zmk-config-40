@@ -169,11 +169,13 @@
  *   P0.13 LOW  = VCC powered off
  *   P0.13 HIGH = VCC powered on
  *
- * Goal:
- *   Awake      -> external power enabled -> P0.13 HIGH -> VCC 3.3V
- *   Deep sleep -> external power disabled -> P0.13 LOW  -> VCC 0V
+ * ZMK ext_power active state should mean VCC ON.
  */
-&{/ext-power} {
-    control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+ / {
+    ext-power {
+        compatible = "zmk,ext-power-generic";
+        label = "EXT_POWER";
+        control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+    };
 };
 /* ===== SuperMini VCC auto power fix end ===== */
