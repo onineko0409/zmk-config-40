@@ -163,3 +163,18 @@
 
     };
 };
+
+/* ===== SuperMini VCC polarity fix start =====
+ * Your board is inverted vs normal nice!nano ext_power:
+ * EP_ON currently makes VCC 0V, EP_OFF makes VCC 3.3V.
+ * Therefore control-gpios must be GPIO_ACTIVE_LOW.
+ */
+ / {
+    ext-power {
+        compatible = "zmk,ext-power-generic";
+        label = "EXT_POWER";
+        control-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+    };
+};
+/* ===== SuperMini VCC polarity fix end ===== */
+
