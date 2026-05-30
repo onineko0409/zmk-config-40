@@ -4,7 +4,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pm.h>
 
 / {
     behaviors {
