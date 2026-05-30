@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pm.h>
 
 / {
     behaviors {
@@ -163,16 +164,16 @@
         fn_layer {
             bindings = <
                 /* ROW1: red */
-                &trans        &trans        &trans        &trans        &mkp LCLK     &mkp RCLK     &out OUT_USB  &msc SCRL_DOWN &msc SCRL_RIGHT &msc SCRL_LEFT   &kp PLUS
+                &trans        &trans        &trans        &trans        &mkp LCLK     &mkp RCLK     &out OUT_USB  &msc SCRL_DOWN &msc SCRL_RIGHT &msc SCRL_LEFT &kp PLUS
 
                 /* ROW2: blue */
-                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &kp COMMA     &kp QUESTION  &msc SCRL_UP       &kp DOT      &trans
+                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &kp COMMA     &kp QUESTION   &msc SCRL_UP    &kp DOT        &trans
 
                 /* ROW3: yellow */
-                &trans        &trans        &trans        &trans        &trans        &kp LBKT      &kp RBKT      &kp SQT       &kp BSLH      &kp SEMI     &trans
+                &trans        &ext_power EP_OFF &ext_power EP_ON &ext_power EP_TOG &trans &kp LBKT &kp RBKT &kp SQT &kp BSLH &kp SEMI &trans
 
                 /* ROW4: green */
-                &trans        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp N6        &kp N8        &kp N9        &kp N7       &kp N0
+                &soft_off     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp N6        &kp N8        &kp N9        &kp N7        &kp N0
             >;
         };
     };
