@@ -165,18 +165,15 @@
 };
 
 /* ===== SuperMini VCC polarity fix start =====
- * This SuperMini clone has inverted external VCC control:
- * GPIO LOW enables VCC, GPIO HIGH cuts VCC.
+ * Override the existing nice_nano ext_power node.
  *
- * After this fix:
- *   EP_ON  -> VCC = 3.3V
- *   EP_OFF -> VCC = 0V
+ * Board note:
+ *   P0.13 LOW  = VCC powered off
+ *   P0.13 HIGH = VCC powered on
+ *
+ * Therefore EP_ON should drive P0.13 HIGH.
  */
-/ {
-    ext-power {
-        compatible = "zmk,ext-power-generic";
-        label = "EXT_POWER";
-        control-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-    };
+&ext_power {
+    control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
 };
 /* ===== SuperMini VCC polarity fix end ===== */
