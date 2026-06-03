@@ -7,136 +7,75 @@
 
 / {
     behaviors {
-        q_excl: q_excl {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp Q>, <&kp EXCL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        w_at: w_at {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp W>, <&kp AT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        e_hash: e_hash {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp E>, <&kp HASH>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        r_dollar: r_dollar {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp R>, <&kp DLLR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        t_percent: t_percent {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp T>, <&kp PRCNT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        y_caret: y_caret {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp Y>, <&kp CARET>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        u_ampersand: u_ampersand {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp U>, <&kp AMPS>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        i_asterisk: i_asterisk {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp I>, <&kp STAR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        o_lparen: o_lparen {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp O>, <&kp LPAR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        p_rparen: p_rparen {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp P>, <&kp RPAR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        bspc_equal: bspc_equal {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp BSPC>, <&kp EQUAL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        g_lbrace: g_lbrace {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp G>, <&kp LBRC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        h_rbrace: h_rbrace {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp H>, <&kp RBRC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        j_colon: j_colon {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp J>, <&kp COLON>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        k_dquote: k_dquote {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp K>, <&kp DQT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        l_pipe: l_pipe {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp L>, <&kp PIPE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        n_lt: n_lt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp N>, <&kp LT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        m_gt: m_gt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp M>, <&kp GT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+        spc_fn: spc_fn {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPC_FN";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            bindings = <&mo>, <&kp>;
         };
 
         fn_question: fn_question {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mo 1>, <&kp QUESTION>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_g_bracket: fn_g_bracket {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC>, <&kp LBKT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_h_bracket: fn_h_bracket {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RBRC>, <&kp RBKT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_j_pipe: fn_j_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE>, <&kp BSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_k_colon: fn_k_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COLON>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_l_quote: fn_l_quote {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DQT>, <&kp SQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_n_comma: fn_n_comma {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_m_dot: fn_m_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp GT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        fn_slash_question: fn_slash_question {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp QUESTION>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -147,29 +86,29 @@
         default_layer {
             bindings = <
                 /* ROW1: red */
-                &kp LCTRL &kp LGUI &kp LALT &none &kp SPACE &kp SPACE &none &kp DOWN &kp RIGHT &kp LEFT &bspc_equal
+                &kp LCTRL &kp LGUI &kp LALT &none &spc_fn 1 SPACE &kp SPACE &none &kp DOWN &kp RIGHT &kp LEFT &kp BSPC
 
                 /* ROW2: blue */
-                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &n_lt &fn_question &kp UP &m_gt &mo 1
+                &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp N &fn_question &kp UP &kp M &mo 1
 
                 /* ROW3: yellow */
-                &kp TAB &kp A &kp S &kp D &kp F &g_lbrace &h_rbrace &k_dquote &l_pipe &j_colon &kp ENTER
+                &kp TAB &kp A &kp S &kp D &kp F &kp G &kp H &kp K &kp L &kp J &kp ENTER
 
                 /* ROW4: green */
-                &kp ESC &q_excl &w_at &e_hash &r_dollar &t_percent &y_caret &i_asterisk &o_lparen &u_ampersand &p_rparen
+                &kp ESC &kp Q &kp W &kp E &kp R &kp T &kp Y &kp I &kp O &kp U &kp P
             >;
         };
 
         fn_layer {
             bindings = <
                 /* ROW1: red */
-                &out OUT_BLE  &out OUT_USB  &trans        &trans        &mkp LCLK     &mkp RCLK     &out OUT_USB  &msc SCRL_DOWN &msc SCRL_RIGHT &msc SCRL_LEFT &kp PLUS
+                &out OUT_BLE  &out OUT_USB  &trans        &trans        &mkp LCLK     &mkp RCLK     &trans        &msc SCRL_DOWN &msc SCRL_RIGHT &msc SCRL_LEFT &kp PLUS
 
                 /* ROW2: blue */
-                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &kp COMMA     &kp QUESTION   &msc SCRL_UP    &kp DOT        &trans
+                &trans        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &mkp MCLK     &bt BT_SEL 2  &fn_n_comma   &fn_slash_question &msc SCRL_UP &fn_m_dot &trans
 
                 /* ROW3: yellow */
-                &trans        &ext_power EP_OFF &ext_power EP_ON &ext_power EP_TOG &trans &kp LBKT &kp RBKT &kp SQT &kp BSLH &kp SEMI &trans
+                &trans        &ext_power EP_OFF &ext_power EP_ON &ext_power EP_TOG &trans &fn_g_bracket &fn_h_bracket &fn_k_colon &fn_l_quote &fn_j_pipe &trans
 
                 /* ROW4: green */
                 &trans        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &kp N6        &kp N8        &kp N9        &kp N7        &kp N0
